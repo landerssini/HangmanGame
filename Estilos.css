@@ -7,18 +7,29 @@ body{
     justify-items: center;
     grid-gap: 5px;
 }
-#keyboard button{
-    width: 26px;
+.letter{
+    width: 40px;
     background-color: white;
     border-radius: 7px;
     border-width: 1.5px;
     border-color: black;
+    height: 33px;
+    cursor: pointer;
+}
+.letter:active{
+    background-color: rgb(183, 183, 183);
+}
+.incorrect{
+    background-color: rgb(230, 0, 0);
+    opacity: 0.3;
+}
+.correct{
+    background-color: rgb(32, 213, 0);
 }
 #game{
     display:grid;
     grid-template-columns: auto auto;
     grid-template-rows: 70% auto;
-    
 }
 #hangman{
     grid-column: 1/2;
