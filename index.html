@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game </title>
+    <link rel="stylesheet" href="Estilos.css">
 </head>
 
 <body>
@@ -45,15 +46,40 @@
             <button id="M" class="letra">M</button>
         </div>
     </div>
-    <div id="scoreboard">
+    <div id="scoreBoard">
         <h2>Top 5 SCORES</h2>
-        <div id="top5list">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <table id="scoreTable">
+            <tr id="primero">
+                <th>Name</th>
+                <th>Score</th>
+                <th>Time</th>
+              </tr>
+              <tr id="segundo">
+                <td>Neymar Jr.</td>
+                <td>100</td>
+                <td>30 s</td>
+              </tr>
+              <tr id="tercero">
+                <td>Gudjohnsen</td>
+                <td>98</td>
+                <td>40 s</td>
+              </tr>
+              <tr id="cuarto">
+                <td>Cheddar</td>
+                <td>67</td>
+                <td>54 s</td>
+              </tr>
+              <tr id="quinto">
+                <td>JFK</td>
+                <td>45</td>
+                <td>69 s</td>
+              </tr>
+              <tr>
+                <td>Ada Colau</td>
+                <td>25</td>
+                <td>245 s</td>
+              </tr>
+        </table>
     </div>
 </body>
 
