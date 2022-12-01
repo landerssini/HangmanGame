@@ -1,0 +1,31 @@
+body{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+#keyboard {
+    display: grid;
+    justify-items: center;
+    grid-gap: 5px;
+}
+#keyboard button{
+    width: 26px;
+    background-color: white;
+    border-radius: 7px;
+    border-width: 1.5px;
+    border-color: black;
+}
+#game{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 70% auto;
+    
+}
+#hangman{
+    grid-column: 1/2;
+}
+#word{
+    grid-column: 2/3;
+}
+#keyboard{
+    grid-column: 1/3;
+}
