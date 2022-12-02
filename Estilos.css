@@ -63,9 +63,7 @@ body {
     border: solid 1px white;
     color: #a1ece6;
   }
-  body{
-    display: flex;
-}
+  
 
 #table{
     width: 100%;
@@ -104,8 +102,7 @@ body {
 html,
 body {
     background-color: rgb(190, 190, 190);
-    width: 100%;
-    height: 100%;
+    
     margin: 0;
 }
 
@@ -197,7 +194,7 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1430px) {
     .letter {
 
         font-size: 17px;
@@ -212,24 +209,35 @@ body {
     #content{
         margin: 110px 20px 0 20px;
     }
+    #game{
+        grid-template-columns: auto; 
+        grid-template-rows: auto;
+    }
 }
 @media screen and (max-width: 605px) {
     .letter {
         font-size: 13px;
         width: 2em;
         height: 2em;
-
+    }
+    #scoreTable{
+        min-width: 260px;
     }
     #content{
         margin: 110px 20px 0 20px;
     }
+    #hangman, #word, #keyboard{
+        grid-column: 1/2
+    }
+    
 }
 
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1175px) {
     #content {
         display: grid;
         grid-template-columns: auto;
+        justify-items: center;
     }
 }
 #scoreTable #segundo{
