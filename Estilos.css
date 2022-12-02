@@ -1,3 +1,22 @@
+body{
+    display: flex;
+}
+
 #table{
     width: 100%;
+}
+
+#scoreContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 40vh;
+}
+
+#scoreContainer h2{
+    align-self: center;
+}
+
+#scoreTable{
+    align-self: center;
 }
