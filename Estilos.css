@@ -14,8 +14,8 @@ body {
     margin: 0 auto;
   }
   
-  canvas {
-    color: white;
+  #stickman {
+    color: rgb(255, 255, 255);
     border: white dashed 2px;
     padding: 15px;
   }
@@ -40,7 +40,7 @@ body {
     font-size: 1.2em;
   }
   
-  Button {
+  .btn-2 {
     background: #a1ece6;
     border-radius: 5px;
     border: solid 1px white;
@@ -50,7 +50,7 @@ body {
     margin: 0 10px 10px 0;
     outline: none;
   }
-  Button:hover {
+  .btn-2:hover {
     transition: 0.5s;
     background: white;
     border: solid 1px white;
