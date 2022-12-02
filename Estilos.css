@@ -22,24 +22,156 @@ body{
     margin: 5px;
 }
 
-#scoreTable{
+#scoreContainer{
     align-self: center;
     border-spacing: 0px 2px;
     text-align: center;
     margin: 0 5px 0 5px;
 }
 
-#scoreTable th{
+#scoreContainer th{
     width: 10vw;
 }
 
-#scoreTable #primero{
+#scoreContainer #primero{
     background-color: gold;
 }
+html,
+body {
+    background-color: rgb(190, 190, 190);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 
+#content {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 110px;
+    gap: 30px;
+    min-width: 342px;
+}
+
+#game {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 30px
+}
+
+.boxContent {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#keyboard {
+    display: grid;
+    justify-items: center;
+    grid-gap: 5px;
+    grid-column: 1/3;
+}
+
+.letter {
+    width: 2.5em;
+    background-color: white;
+    border-radius: 7px;
+    border-width: 1.5px;
+    border-color: black;
+    height: 2.5em;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.letter:active {
+    background-color: rgb(183, 183, 183);
+}
+
+.incorrect {
+    background-color: rgb(230, 0, 0);
+    opacity: 0.3;
+}
+
+.correct {
+    background-color: rgb(32, 213, 0);
+}
+
+#hangman {
+    grid-column: 1/2;
+    text-align: center;
+}
+
+#word {
+    display: flex;
+    grid-column: 2/3;
+    text-align: center;
+    justify-content: center;
+}
+
+.wordLetter {
+    border: 1px solid black;
+    width: 0.9em;
+    height: 1.2em;
+    font-size: 27px;
+    margin-right: -1px;
+}
+
+.wordLetter h3 {
+    margin: 0;
+    line-height: 23px;
+    margin-top: 6px;
+}
+
+.hideLetter {
+    display: none;
+}
+
+#register {
+    display: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .letter {
+
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .letter {
+
+        font-size: 13px;
+    }
+    #content{
+        margin: 110px 20px 0 20px;
+    }
+}
+@media screen and (max-width: 605px) {
+    .letter {
+        font-size: 13px;
+        width: 2em;
+        height: 2em;
+
+    }
+    #content{
+        margin: 110px 20px 0 20px;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    #content {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
 #scoreTable #segundo{
     background-color: silver;
 }
 #scoreTable #tercero{
     background-color: rgb(205, 127, 50);
 }
+
+    
