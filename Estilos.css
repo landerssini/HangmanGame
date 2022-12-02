@@ -9,14 +9,37 @@ body{
 #scoreContainer{
     display: flex;
     flex-direction: column;
-    width: 40vw;
-    height: 40vh;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+    margin-left: 20px;
 }
 
 #scoreContainer h2{
     align-self: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin: 5px;
 }
 
 #scoreTable{
     align-self: center;
+    border-spacing: 0px 2px;
+    text-align: center;
+    margin: 0 5px 0 5px;
+}
+
+#scoreTable th{
+    width: 10vw;
+}
+
+#scoreTable #primero{
+    background-color: gold;
+}
+
+#scoreTable #segundo{
+    background-color: silver;
+}
+#scoreTable #tercero{
+    background-color: rgb(205, 127, 50);
 }
