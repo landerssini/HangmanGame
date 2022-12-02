@@ -28,7 +28,6 @@ body {
     width: 35px;
     height: 35px;
     margin: 0 10px 10px 0
-    outline: none;
   }
   .btn-2:hover {
     transition: 0.5s;
