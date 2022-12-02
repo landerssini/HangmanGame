@@ -4,8 +4,16 @@ const buttonReset = document.getElementById("reset");
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
 
-buttonReset.addEventListener("click", frame1())
-
+frame1()
+frame2()
+frame3()
+frame4()
+head()
+torso()
+rightArm()
+leftArm()
+rightLeg()
+leftLeg()
 
 function head() {
     stickman = document.getElementById("stickman");
