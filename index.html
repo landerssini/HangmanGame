@@ -10,9 +10,18 @@
     <script src="localStorage.js" defer></script>
     <title>Hangman Game </title>
     <script src="https://kit.fontawesome.com/ddb0258280.js" crossorigin="anonymous"></script>
+    <script src="Logica.js" defer></script>
 </head>
 
 <body>
+  <div id="divInicial">
+    <div id="userRegistration">
+      <label for="username">Introduce your username:</label>
+      <input type="text" id="userName" name="username" value="">
+      <button id="registerButton">Start the GAME!</button>
+    </div>
+  </div>
+
     <div id="content">
         <div id="game" class="boxContent">
             <div id="register">
@@ -87,14 +96,14 @@
                     <td class="time">54 s <i class="fa-solid fa-medal"></i></td>
                 </tr>
                 <tr id="cuarto">
-                    <td class="name">JFK</td>
-                    <td class="score">45</td>
-                    <td class="time">69 s</td>
+                    <td class="name" id="player4">Ada Colau</td>
+                    <td class="score" id="player4Points">45</td>
+                    <td class="time" id="player4Time">69 s</td>
                 </tr>
                 <tr id="quinto">
-                    <td class="name">Ada Colau</td>
-                    <td class="score">25</td>
-                    <td class="time">245 s</td>
+                    <td class="name" id="player5"></td>
+                    <td class="score" id="player5Points">25</td>
+                    <td class="time" id="player5Time">245 s</td>
                 </tr>
             </table>
         </div>
