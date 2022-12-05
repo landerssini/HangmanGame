@@ -1,3 +1,4 @@
+var hangamandiv = document.querySelector("#hangman")
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
 var emptyVar;
@@ -55,8 +56,10 @@ function frame () {
     }
     
     function draw($pathFromx, $pathFromy, $pathTox, $pathToy) {
+      context.beginPath()
       context.moveTo($pathFromx, $pathFromy);
       context.lineTo($pathTox, $pathToy);
+      context.closePath()
       context.stroke();
     }
   
@@ -93,8 +96,11 @@ function frame () {
     }
     
     function leftLeg() {
-      draw(60, 70, 20, 100);}
+      draw(60, 70, 20, 100);
+    }
+    
   
+
 
 let words = ["pasas", "rutina", "espeso", "poseer", "correr", "hora", "llegar", "tienda", "vuelo", "crecer", "guerra", "brote", "marido", "lleno", "duelo", "pagas", "antena", "morena", "huella", "rutina"]
 let wordNumber
@@ -119,7 +125,7 @@ const player5 = document.querySelector("#player5");
 const player5Points = document.querySelector("#player5Points");
 const player5Time = document.querySelector("#player5Time");
 const playersArray = [];
-const localStorageObj = {};
+
 
 
 // Página inicial, usuario & pasar al juego
@@ -131,12 +137,12 @@ registerButton.onclick = function(){
         playersArray.push(userNameInput.value)
         divInicial.style.display="none";
         divScoreContainer.style.display="flex";
-        divGame.style.display="block";
+        divGame.style.display="grid";
         player5.textContent = userNameInput.value;
         player5Time.textContent = "Currently playing..."
+        setWord()
     }
 }
-
 // Top 5 players + localStorage
   
 function setWord() {
@@ -146,7 +152,9 @@ function setWord() {
     element.addEventListener("click", checkLetter)
     element.setAttribute("class", "letter")
   })
-  clearCanvas(); wordDisplay.innerHTML = " "
+  binary = 0
+  context.clearRect(0, 0, 300, 150)
+  wordDisplay.innerHTML = " "
   wordNumber = Math.floor(Math.random() * 20)
   word = words[wordNumber].toUpperCase()
   for (i = 0; i < word.length; i++) {

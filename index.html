@@ -10,28 +10,29 @@
     <script src="localStorage.js" defer></script>
     <title>Hangman Game </title>
     <script src="https://kit.fontawesome.com/ddb0258280.js" crossorigin="anonymous"></script>
-    <script src="Logica.js" defer></script>
+
 </head>
 
 <body>
-  <div id="divInicial">
-    <div id="userRegistration">
-      <label for="username">Introduce your username:</label>
-      <input type="text" id="userName" name="username" value="">
-      <button id="registerButton">Start the GAME!</button>
+    <div id="divInicial">
+        <div id="userRegistration">
+            <label for="username">Introduce your username:</label>
+            <input type="text" id="userName" name="username" value="">
+            <button id="registerButton">Start the GAME!</button>
+        </div>
     </div>
-  </div>
 
     <div id="content">
         <div id="game" class="boxContent">
             <div id="register">
             </div>
             <div id="hangman">
-              <canvas id="stickman"></canvas>
-              <div class="container">
-                <button class="btn-2" id="hint">Hint</button>
-                <button class="btn-2" id="reset">Play again</button>
-              </div>
+                <canvas id="stickman"></canvas>
+                
+                <div class="container">
+                    <button class="btn-2" id="hint">Hint</button>
+                    <button class="btn-2" id="reset">Play again</button>
+                </div>
             </div>
             <div id="word">
             </div>
@@ -108,7 +109,7 @@
             </table>
         </div>
     </div>
-</div>
+    </div>
 </body>
 
 </html>
