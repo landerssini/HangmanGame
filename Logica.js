@@ -118,7 +118,6 @@ function checkLetter(i) {
       letterCorrectID[a].firstElementChild.removeAttribute("class")
       hintletter = document.querySelectorAll(".hideLetter")
       correctLetter = true
-      console.log(i)
     }
     if (correctLetter) {
       i.path[0].setAttribute("class", "correct")
@@ -134,7 +133,6 @@ function checkLetter(i) {
 function giveHint(){
   i= Math.floor(Math.random() * (hintletter.length))
   hintletter[i].removeAttribute("class")
-  console.log(i)
   hint.setAttribute("class", "used")
   hint.removeEventListener("click", giveHint)
 }
