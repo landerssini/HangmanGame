@@ -1,6 +1,4 @@
-const hintShow = document.getElementById("clue");
-const buttonHint = document.getElementById("hint");
-const buttonReset = document.getElementById("reset");
+var hangamandiv = document.querySelector("#hangman")
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
 var emptyVar;
@@ -47,8 +45,10 @@ function frame () {
     }
     
     function draw($pathFromx, $pathFromy, $pathTox, $pathToy) {
+      context.beginPath()
       context.moveTo($pathFromx, $pathFromy);
       context.lineTo($pathTox, $pathToy);
+      context.closePath()
       context.stroke();
     }
   
@@ -85,8 +85,11 @@ function frame () {
     }
     
     function leftLeg() {
-      draw(60, 70, 20, 100);}
+      draw(60, 70, 20, 100);
+    }
+    
   
+
 
 let words = ["pasas", "rutina", "espeso", "poseer", "correr", "hora", "llegar", "tienda", "vuelo", "crecer", "guerra", "brote", "marido", "lleno", "duelo", "pagas", "antena", "morena", "huella", "rutina"]
 let wordNumber
@@ -101,13 +104,7 @@ reset.addEventListener("click", setWord)
 let hint = document.querySelector("#hint")
 let letterbuttons = document.querySelectorAll(".letter")
 
-function setWord() {
-  hint.addEventListener("click", giveHint)
-  hint.setAttribute("class", "btn-2")
-  letterbuttons.forEach(element => {
-    element.addEventListener("click", checkLetter)
-    element.setAttribute("class", "letter")
-  })
+
 const registerButton = document.querySelector("#registerButton");
 const userNameInput = document.querySelector("#userName");
 const divGame = document.querySelector("#game");
@@ -117,7 +114,7 @@ const player5 = document.querySelector("#player5");
 const player5Points = document.querySelector("#player5Points");
 const player5Time = document.querySelector("#player5Time");
 const playersArray = [];
-const localStorageObj = {};
+
 
 
 // Página inicial, usuario & pasar al juego
@@ -129,16 +126,23 @@ registerButton.onclick = function(){
         playersArray.push(userNameInput.value)
         divInicial.style.display="none";
         divScoreContainer.style.display="flex";
-        divGame.style.display="block";
+        divGame.style.display="grid";
         player5.textContent = userNameInput.value;
         player5Time.textContent = "Currently playing..."
+        setWord()
     }
 }
-
 // Top 5 players + localStorage
   
-
-  context.clearRect(0, 0, stickman.width, stickman.height)
+function setWord() {
+  hint.addEventListener("click", giveHint)
+  hint.setAttribute("class", "btn-2")
+  letterbuttons.forEach(element => {
+    element.addEventListener("click", checkLetter)
+    element.setAttribute("class", "letter")
+  })
+  binary = 0
+  context.clearRect(0, 0, 300, 150)
   wordDisplay.innerHTML = " "
   wordNumber = Math.floor(Math.random() * 20)
   word = words[wordNumber].toUpperCase()
@@ -176,9 +180,4 @@ function giveHint(){
   hintletter[i].removeAttribute("class")
   hint.setAttribute("class", "used")
   hint.removeEventListener("click", giveHint)
-}
-localStorageObj = {
-    username : "Albert",
-    score : 1234,
-    time : 35
 }
