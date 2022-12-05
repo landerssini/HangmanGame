@@ -1,6 +1,3 @@
-const hintShow = document.getElementById("clue");
-const buttonHint = document.getElementById("hint");
-const buttonReset = document.getElementById("reset");
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
 var emptyVar;
@@ -37,7 +34,18 @@ function frame () {
     rightLeg();
   }
   }
-  
+  function clearCanvas(canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.save();
+    ctx.globalCompositeOperation = 'copy';
+    ctx.strokeStyle = 'transparent';
+    ctx.beginPath();
+    ctx.lineTo(0, 0);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+
   function head() {
       stickman = document.getElementById("stickman");
       context = stickman.getContext("2d");
@@ -101,13 +109,7 @@ reset.addEventListener("click", setWord)
 let hint = document.querySelector("#hint")
 let letterbuttons = document.querySelectorAll(".letter")
 
-function setWord() {
-  hint.addEventListener("click", giveHint)
-  hint.setAttribute("class", "btn-2")
-  letterbuttons.forEach(element => {
-    element.addEventListener("click", checkLetter)
-    element.setAttribute("class", "letter")
-  })
+
 const registerButton = document.querySelector("#registerButton");
 const userNameInput = document.querySelector("#userName");
 const divGame = document.querySelector("#game");
@@ -137,9 +139,14 @@ registerButton.onclick = function(){
 
 // Top 5 players + localStorage
   
-
-  context.clearRect(0, 0, stickman.width, stickman.height)
-  wordDisplay.innerHTML = " "
+function setWord() {
+  hint.addEventListener("click", giveHint)
+  hint.setAttribute("class", "btn-2")
+  letterbuttons.forEach(element => {
+    element.addEventListener("click", checkLetter)
+    element.setAttribute("class", "letter")
+  })
+  clearCanvas(); wordDisplay.innerHTML = " "
   wordNumber = Math.floor(Math.random() * 20)
   word = words[wordNumber].toUpperCase()
   for (i = 0; i < word.length; i++) {
@@ -176,9 +183,4 @@ function giveHint(){
   hintletter[i].removeAttribute("class")
   hint.setAttribute("class", "used")
   hint.removeEventListener("click", giveHint)
-}
-localStorageObj = {
-    username : "Albert",
-    score : 1234,
-    time : 35
 }
