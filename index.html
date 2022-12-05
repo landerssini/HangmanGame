@@ -8,9 +8,18 @@
     <title>Hangman Game </title>
     <link rel="stylesheet" href="Estilos.css">
     <script src="https://kit.fontawesome.com/ddb0258280.js" crossorigin="anonymous"></script>
+    <script src="Logica.js" defer></script>
 </head>
 
 <body>
+  <div id="divInicial">
+    <div id="userRegistration">
+      <label for="username">Introduce your username:</label>
+      <input type="text" id="userName" name="username" value="">
+      <button id="registerButton">Start the GAME!</button>
+    </div>
+  </div>
+
     <div id="game">
         <div id="hangman">
 
@@ -71,14 +80,14 @@
                 <td>54 s <i class="fa-solid fa-medal"></i></td>
               </tr>
               <tr id="cuarto">
-                <td>JFK</td>
-                <td>45</td>
-                <td>69 s</td>
+                <td id="player4">Ada Colau</td>
+                <td id="player4Points">45</td>
+                <td id="player4Time">69 s</td>
               </tr>
               <tr id="quinto">
-                <td>Ada Colau</td>
-                <td>25</td>
-                <td>245 s</td>
+                <td id="player5"></td>
+                <td id="player5Points">25</td>
+                <td id="player5Time">245 s</td>
               </tr>
         </table>
     </div>

@@ -6,6 +6,13 @@ body{
     width: 100%;
 }
 
+#divInicial{
+    display: flex;
+    width: 40%;
+    margin: auto;
+    height: 100vh;
+}
+
 #scoreContainer{
     display: flex;
     flex-direction: column;
@@ -13,6 +20,7 @@ body{
     height: fit-content;
     border: 1px solid black;
     margin-left: 20px;
+    display: none;
 }
 
 #scoreContainer h2{
@@ -43,3 +51,36 @@ body{
 #scoreTable #tercero{
     background-color: rgb(205, 127, 50);
 }
+
+#game{
+    display:none;
+}
+
+#userRegistration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+
+#userRegistration button{
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #b3e6b3;
+}
+
+#userRegistration input{
+    border-radius: 16px;
+    border: solid 1.5px black;
+    background-color: #ebebeb;
+    padding: 0.5rem;
+}
+
+#userName{
+    margin: 1rem;
+}
+
