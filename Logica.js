@@ -1,6 +1,7 @@
 var hangamandiv = document.querySelector("#hangman")
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
+const winner1 = document.querySelector("#winner1")
 var emptyVar;
 var binary = 0;
 function frame () {
@@ -33,7 +34,12 @@ function frame () {
     binary = 01011;
   } else if (binary === 01011){
     rightLeg();
+    binary = 010110;
+  }else if (binary === 010110){
+    winner1.style.display="flex"  
   }
+
+
   }
   function clearCanvas(canvas) {
     const ctx = canvas.getContext('2d');
@@ -104,7 +110,7 @@ function frame () {
 
 let words = ["pasas", "rutina", "espeso", "poseer", "correr", "hora", "llegar", "tienda", "vuelo", "crecer", "guerra", "brote", "marido", "lleno", "duelo", "pagas", "antena", "morena", "huella", "rutina"]
 let wordNumber
-let word
+let word 
 let wordSplit
 let wordDisplay = document.querySelector("#word")
 let letter
@@ -125,17 +131,23 @@ const player5 = document.querySelector("#player5");
 const player5Points = document.querySelector("#player5Points");
 const player5Time = document.querySelector("#player5Time");
 const playersArray = [];
-
-
+const divBox = document.querySelector(".box")
+const userAnimation = document.querySelector("#userAnimation")
+const content = document.querySelector("#content")
 
 // Página inicial, usuario & pasar al juego
-
+userAnimation.style.display = "none"
 registerButton.onclick = function(){
     if(userNameInput.value == ""){
         alert("Introduce your username before playing!");
     } else{
         playersArray.push(userNameInput.value)
+        content.style.animation =" myAnim 1s ease 0s 1 normal forwards";
+        content.style.animationDelay = "2.8s";
+        userAnimation.style.display="flex"
         divInicial.style.display="none";
+        divBox.style.animationDirection = "reverse";
+        divBox.style.display="none";
         divScoreContainer.style.display="flex";
         divGame.style.display="grid";
         player5.textContent = userNameInput.value;
@@ -144,15 +156,19 @@ registerButton.onclick = function(){
     }
 }
 // Top 5 players + localStorage
-  
+let correctWord = 0;
+let testWord = 9;
+let bigWinner = document.querySelector("#bigWinner");
 function setWord() {
   hint.addEventListener("click", giveHint)
   hint.setAttribute("class", "btn-2")
   letterbuttons.forEach(element => {
     element.addEventListener("click", checkLetter)
     element.setAttribute("class", "letter")
-  })
+})
+  winner1.style.display="none"
   binary = 0
+  correctWord = 0
   context.clearRect(0, 0, 300, 150)
   wordDisplay.innerHTML = " "
   wordNumber = Math.floor(Math.random() * 20)
@@ -172,20 +188,28 @@ function checkLetter(i) {
       letterCorrectID[a].firstElementChild.removeAttribute("class")
       hintletter = document.querySelectorAll(".hideLetter")
       correctLetter = true
+      correctWord += 1;
     }
     if (correctLetter) {
       i.path[0].setAttribute("class", "correct")
       i.path[0].removeEventListener("click", checkLetter)
-    }
+
+    } 
+
     else {
       i.path[0].setAttribute("class", "incorrect")
       i.path[0].removeEventListener("click", checkLetter)
+      
+    }if (correctWord === word.length){
+      bigWinner.style.display="flex";
+      reset.style.display ="flex"
     }
   }
   if(!correctLetter){
     frame()
   }
 }
+
 function giveHint(){
   i= Math.floor(Math.random() * (hintletter.length))
   hintletter[i].removeAttribute("class")
