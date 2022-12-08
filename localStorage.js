@@ -1,3 +1,4 @@
+let Albert;
 let localStorageObj;
 let scores;
 let namePrimero = document.querySelector("#primero .name");
