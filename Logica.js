@@ -37,6 +37,7 @@ function frame () {
   } else if (binary === 01011){
     rightLeg();
     emptyVar = 1;
+    stopTime();
   } 
   if (emptyVar === 1){
     loser.style.display="flex"  
@@ -225,10 +226,11 @@ function checkLetter(i) {
       i.path[0].removeEventListener("click", checkLetter)
       
     }if (correctWord === word.length){
-      stopTime()
+      
       bigWinner.style.display="flex";
       reset.style.display ="flex";
       finalLocalStorage();
+      stopTime()
     }
   }
   if(!correctLetter){

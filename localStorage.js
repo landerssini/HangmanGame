@@ -32,32 +32,58 @@ for (let i = 1; i <= localStorage.length; i++){
     initialLocalStorage[itemScore] = JSON.parse(localStorage.getItem(`usuario${i}`));
 }
 
-
 let localStorageObj= {230:{
-    username : "Neymar Jr.",
-    score : 230,
-    time : 35
+    username : "",
+    score : "",
+    time : ""
 },
 100:{
-    username : "JJ",
-    score : 100,
-    time : 45
+    username : "",
+    score : "",
+    time : ""
 },
 200:{
-    username : "Ada Colau",
-    score : 200,
-    time : 80
+    username : "",
+    score : "",
+    time : ""
 },
 250:{
-    username : "Manu",
-    score : 250,
-    time : 123
+    username : "",
+    score : "",
+    time : ""
 },
 175:{
-    username : "Emilio",
-    score : 175,
-    time : 74
+    username : "",
+    score : "",
+    time : ""
 }};
+
+
+// let localStorageObj= {230:{
+//     username : "Neymar Jr.",
+//     score : 230,
+//     time : 35
+// },
+// 100:{
+//     username : "JJ",
+//     score : 100,
+//     time : 45
+// },
+// 200:{
+//     username : "Ada Colau",
+//     score : 200,
+//     time : 80
+// },
+// 250:{
+//     username : "Manu",
+//     score : 250,
+//     time : 123
+// },
+// 175:{
+//     username : "Emilio",
+//     score : 175,
+//     time : 74
+// }};
 
 // localStorageObj[1502] = {
 //     username : "Rachel",
@@ -117,7 +143,7 @@ function localStorageToTime(){
     let x = 1;
     for(let i of timesAll){
         usuario = JSON.parse(localStorage.getItem(`usuario${x}`));
-        i.textContent = usuario["time"] + "s";
+        i.textContent = usuario["time"];
         x++;
     }
 }

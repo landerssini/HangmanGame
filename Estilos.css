@@ -12,6 +12,10 @@ body {
     font-size: 18px;
   }
   
+  tr{
+    height: 22.67px
+  }
+
   .wrappper {
     width: 100%;
     margin: 0 auto;
