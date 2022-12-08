@@ -127,7 +127,12 @@ registerButton.onclick = function(){
         divInicial.style.display="none";
         divScoreContainer.style.display="flex";
         divGame.style.display="grid";
+        setLocalStorage();
+        localStorageToUsername();
+        localStorageToScore();
+        localStorageToTime();
         player5.textContent = userNameInput.value;
+        player5Points.textContent = "0"
         player5Time.textContent = "Currently playing..."
         setWord()
     }
