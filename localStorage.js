@@ -1,4 +1,3 @@
-let localStorageObj;
 let scores;
 let namePrimero = document.querySelector("#primero .name");
 let nameSegundo = document.querySelector("#segundo .name");
@@ -18,11 +17,23 @@ let timeQuinto = document.querySelector("#quinto .time");
 let namesAll = document.querySelectorAll(".name");
 let scoresAll = document.querySelectorAll(".score");
 let timesAll = document.querySelectorAll(".time");
+let scoresSorted;
+let scoresSorted5;
+let botonScore = document.querySelector("#scoreContainer h2")
+let botonName = document.querySelector("#primero .name")
 
 
 scoreTableSelector = [];
 
-localStorageObj= {1234:{
+initialLocalStorage = {};
+
+for (let i = 1; i <= localStorage.length; i++){
+    let itemScore = JSON.parse(localStorage.getItem(`usuario${i}`))['score'];
+    initialLocalStorage[itemScore] = JSON.parse(localStorage.getItem(`usuario${i}`));
+}
+
+
+let localStorageObj= {1234:{
     username : "Albert",
     score : 1234,
     time : 35
@@ -48,31 +59,40 @@ localStorageObj= {1234:{
     time : 74
 }};
 
-localStorageObj[3000] = {
-    username : "AlbertG",
-    score : 3000,
-    time : 0
-}
+// localStorageObj[1502] = {
+//     username : "Rachel",
+//     score : 1502,
+//     time : 0
+// }
 
-scores=Object.keys(localStorageObj);
 
-scoresSorted = scores.sort(function(a, b){return b - a});
 
-let scoresSorted5 =[];
+function selectTopScorers(){
 
-for (let i = 0; i <5; i++){
-    scoresSorted5.push(scoresSorted[i]);
+    Object.assign(localStorageObj, initialLocalStorage);
+
+    scores=Object.keys(localStorageObj);
+
+    scoresSorted = scores.sort(function(a, b){return b - a});
+
+    scoresSorted5 =[];
+
+    for (let i = 0; i <5; i++){
+        scoresSorted5.push(scoresSorted[i]);
+    }
 }
 
 
 function setLocalStorage(){
+    selectTopScorers();
     let x = 1;
     for(let i of scoresSorted5){
     localStorage.setItem(`usuario${x}`, JSON.stringify(localStorageObj[i]));
     x++;
 }};
 
-setLocalStorage();
+
+// setLocalStorage();
 
 
 function localStorageToUsername(){
@@ -102,6 +122,29 @@ function localStorageToTime(){
     }
 }
 
-localStorageToUsername();
-localStorageToScore();
-localStorageToTime();
+// localStorageToUsername();
+// localStorageToScore();
+// localStorageToTime();
+
+botonScore.onclick = function(){
+    localStorageToUsername()
+    localStorageToScore()
+    localStorageToTime()
+}
+
+botonName.onclick = function(){
+    localStorageObj[2090] = {
+        username : userNameInput.value,
+        score : 2090,
+        time : 56
+    }
+
+    setLocalStorage();
+    localStorageToUsername();
+    localStorageToScore()
+    localStorageToTime()
+    // player5.textContent = userNameInput.value;
+    // player5Points.textContent = "0"
+    // player5Time.textContent = "Currently playing..."
+}
+

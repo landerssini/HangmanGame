@@ -120,6 +120,7 @@ let reset = document.querySelector("#reset")
 reset.addEventListener("click", setWord)
 let hint = document.querySelector("#hint")
 let letterbuttons = document.querySelectorAll(".letter")
+let score = 0;
 
 
 const registerButton = document.querySelector("#registerButton");
@@ -150,7 +151,12 @@ registerButton.onclick = function(){
         divBox.style.display="none";
         divScoreContainer.style.display="flex";
         divGame.style.display="grid";
+        setLocalStorage();
+        localStorageToUsername();
+        localStorageToScore();
+        localStorageToTime();
         player5.textContent = userNameInput.value;
+        player5Points.textContent = "0"
         player5Time.textContent = "Currently playing..."
         setWord()
     }
@@ -188,6 +194,7 @@ function checkLetter(i) {
       letterCorrectID[a].firstElementChild.removeAttribute("class")
       hintletter = document.querySelectorAll(".hideLetter")
       correctLetter = true
+      score = score + 200;
       correctWord += 1;
     }
     if (correctLetter) {
@@ -207,6 +214,7 @@ function checkLetter(i) {
   }
   if(!correctLetter){
     frame()
+    score = score - 25;
   }
 }
 
