@@ -1,4 +1,3 @@
-let Albert;
 let localStorageObj;
 let scores;
 let namePrimero = document.querySelector("#primero .name");
@@ -22,6 +21,15 @@ let timesAll = document.querySelectorAll(".time");
 
 
 scoreTableSelector = [];
+
+initialLocalStorage = {};
+
+for (let i = 1; i < 10; i++){
+    let itemScore = JSON.parse(localStorage.getItem(`usuario${i}`))["score"];
+    initialLocalStorage[itemScore] = JSON.parse(localStorage.getItem(`usuario${i}`));
+}
+
+
 
 localStorageObj= {1234:{
     username : "Albert",
