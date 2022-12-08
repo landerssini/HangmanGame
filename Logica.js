@@ -2,7 +2,9 @@ var hangamandiv = document.querySelector("#hangman")
 var stickman = document.getElementById("stickman");
 var context = stickman.getContext("2d");
 const winner1 = document.querySelector("#winner1")
-var emptyVar;
+const loser = document.querySelector(".boxLose")
+let losebtn = document.querySelector(".losebtn")
+var emptyVar = 0;
 var binary = 0;
 function frame () {
   if(binary === 0){
@@ -34,9 +36,12 @@ function frame () {
     binary = 01011;
   } else if (binary === 01011){
     rightLeg();
-    binary = 010110;
-  }else if (binary === 010110){
-    winner1.style.display="flex"  
+    emptyVar = 1;
+  } 
+  if (emptyVar === 1){
+    loser.style.display="flex"  
+    losebtn.style.display="flex"
+
   }
 
 
@@ -118,6 +123,7 @@ let hintletter
 let letterCorrectID
 let reset = document.querySelector("#reset")
 reset.addEventListener("click", setWord)
+losebtn.addEventListener("click", setWord)
 let hint = document.querySelector("#hint")
 let letterbuttons = document.querySelectorAll(".letter")
 
@@ -166,7 +172,10 @@ function setWord() {
     element.addEventListener("click", checkLetter)
     element.setAttribute("class", "letter")
 })
+loser.style.display="none" 
   winner1.style.display="none"
+  bigWinner.style.display="none"
+  emptyVar = 0;
   binary = 0
   correctWord = 0
   context.clearRect(0, 0, 300, 150)
@@ -189,11 +198,12 @@ function checkLetter(i) {
       hintletter = document.querySelectorAll(".hideLetter")
       correctLetter = true
       correctWord += 1;
+
     }
     if (correctLetter) {
       i.path[0].setAttribute("class", "correct")
       i.path[0].removeEventListener("click", checkLetter)
-
+      
     } 
 
     else {
@@ -202,7 +212,7 @@ function checkLetter(i) {
       
     }if (correctWord === word.length){
       bigWinner.style.display="flex";
-      reset.style.display ="flex"
+      reset.style.display ="flex";
     }
   }
   if(!correctLetter){
@@ -211,6 +221,7 @@ function checkLetter(i) {
 }
 
 function giveHint(){
+  correctWord += 1;
   i= Math.floor(Math.random() * (hintletter.length))
   hintletter[i].removeAttribute("class")
   hint.setAttribute("class", "used")
