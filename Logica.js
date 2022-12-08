@@ -103,6 +103,7 @@ let reset = document.querySelector("#reset")
 reset.addEventListener("click", setWord)
 let hint = document.querySelector("#hint")
 let letterbuttons = document.querySelectorAll(".letter")
+let score = 0;
 
 
 const registerButton = document.querySelector("#registerButton");
@@ -166,6 +167,7 @@ function checkLetter(i) {
       letterCorrectID[a].firstElementChild.removeAttribute("class")
       hintletter = document.querySelectorAll(".hideLetter")
       correctLetter = true
+      score = score + 200;
     }
     if (correctLetter) {
       i.path[0].setAttribute("class", "correct")
@@ -178,6 +180,7 @@ function checkLetter(i) {
   }
   if(!correctLetter){
     frame()
+    score = score - 25;
   }
 }
 function giveHint(){
