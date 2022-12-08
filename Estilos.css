@@ -2032,6 +2032,7 @@ animation06
   .squ div:nth-child(4) { animation: moveSqu_03 .8s 6.5s forwards;}
   .squ div:nth-child(5) { animation: moveSqu_04 .8s 6.5s forwards;}
   .squ div:nth-child(6) { animation: moveSqu_05 .8s 6.5s forwards;}
+  .squ div:nth-child(7) { animation: moveSqu_06 .8s 6.5s forwards;}
   
   @keyframes squ {
     0% {   transform: translateY(100px) scale(0);}
@@ -2064,6 +2065,11 @@ animation06
     0% {   transform: translateX(0);}
     100% { transform: translateX(600px); border-radius: 0;}
   }
+
+  @keyframes moveSqu_06 {
+    0% {   transform: translateX(0);}
+    100% { transform: translateX(900px); border-radius: 0;}
+  }
   
   /* -----------------------
   animation end  
@@ -2091,20 +2097,30 @@ animation06
   }
   
   .end div:nth-child(1) {
-    transform: translateX(-300px);
+    transform: translateX(-260px);
   }
-  
+
+  .end div:nth-child(2) {
+    transform: translateX(20px);
+  }
+
   .end div:nth-child(3) {
-    transform: translateX(300px);
+    transform: translateX(320px);
   }
 
   .end div:nth-child(4) {
-    transform: translateX(-600px);
+    transform: translateX(-585px);
   }
 
   .end div:nth-child(5) {
-    transform: translateX(600px);
+    transform: translateX(620px);
   }
+
+  .end div:nth-child(6) {
+    transform: translateX(920px);
+  }
+
+
   
   @keyframes end {
     100% { opacity: 1;}
