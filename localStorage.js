@@ -137,7 +137,7 @@ function finalLocalStorage(){
     localStorageObj[score] = {
         username : userNameInput.value,
         score : score,
-        time : 56
+        time : totalSeconds
     }
 
     setLocalStorage();
@@ -148,4 +148,3 @@ function finalLocalStorage(){
     // player5Points.textContent = "0"
     // player5Time.textContent = "Currently playing..."
 }
-

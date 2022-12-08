@@ -166,6 +166,7 @@ let correctWord = 0;
 let testWord = 9;
 let bigWinner = document.querySelector("#bigWinner");
 function setWord() {
+  totalSeconds = -4;
   hint.addEventListener("click", giveHint)
   hint.setAttribute("class", "btn-2")
   letterbuttons.forEach(element => {
@@ -184,6 +185,7 @@ function setWord() {
     <h3 class="hideLetter">${word[i]}</h3></div>`
   }
   hintletter = document.querySelectorAll(".hideLetter")
+  t = setInterval(setTime, 1000);
 }
 function checkLetter(i) {
   let correctLetter = false
@@ -209,6 +211,7 @@ function checkLetter(i) {
       i.path[0].removeEventListener("click", checkLetter)
       
     }if (correctWord === word.length){
+      stopTime
       bigWinner.style.display="flex";
       reset.style.display ="flex"
       finalLocalStorage();
@@ -226,4 +229,23 @@ function giveHint(){
   hintletter[i].removeAttribute("class")
   hint.setAttribute("class", "used")
   hint.removeEventListener("click", giveHint)
+}
+
+var totalSeconds = -4;
+
+
+function setTime() {
+  ++totalSeconds;
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+function stopTime() {
+  clearInterval(t);
 }
