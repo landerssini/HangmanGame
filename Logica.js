@@ -195,6 +195,10 @@ loser.style.display="none"
   }
   hintletter = document.querySelectorAll(".hideLetter")
   t = setInterval(setTime, 1000);
+  score = 0;
+  player5.textContent = userNameInput.value;
+  player5Points.textContent = "0"
+  player5Time.textContent = "Currently playing..."
 }
 function checkLetter(i) {
   let correctLetter = false
@@ -221,7 +225,7 @@ function checkLetter(i) {
       i.path[0].removeEventListener("click", checkLetter)
       
     }if (correctWord === word.length){
-      stopTime
+      stopTime()
       bigWinner.style.display="flex";
       reset.style.display ="flex";
       finalLocalStorage();
