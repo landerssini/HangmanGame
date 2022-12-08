@@ -196,6 +196,7 @@ function checkLetter(i) {
       correctLetter = true
       score = score + 200;
       correctWord += 1;
+      player5Points.textContent = score;
     }
     if (correctLetter) {
       i.path[0].setAttribute("class", "correct")
@@ -216,6 +217,7 @@ function checkLetter(i) {
   if(!correctLetter){
     frame()
     score = score - 25;
+    player5Points.textContent = score;
   }
 }
 
