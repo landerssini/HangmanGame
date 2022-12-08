@@ -33,29 +33,29 @@ for (let i = 1; i <= localStorage.length; i++){
 }
 
 
-let localStorageObj= {1234:{
-    username : "Albert",
-    score : 1234,
+let localStorageObj= {230:{
+    username : "Neymar Jr.",
+    score : 230,
     time : 35
 },
 100:{
-    username : "Neymar Jr.",
+    username : "JJ",
     score : 100,
     time : 45
 },
-250:{
+200:{
     username : "Ada Colau",
-    score : 250,
+    score : 200,
     time : 80
 },
-300:{
-    username : "Gomis",
-    score : 300,
+250:{
+    username : "Manu",
+    score : 250,
     time : 123
 },
-2000:{
-    username : "Cheddar",
-    score : 2000,
+175:{
+    username : "Emilio",
+    score : 175,
     time : 74
 }};
 
@@ -132,10 +132,11 @@ botonScore.onclick = function(){
     localStorageToTime()
 }
 
-botonName.onclick = function(){
-    localStorageObj[2090] = {
+// botonName.onclick = function()
+function finalLocalStorage(){
+    localStorageObj[score] = {
         username : userNameInput.value,
-        score : 2090,
+        score : score,
         time : 56
     }
 

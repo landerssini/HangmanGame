@@ -210,6 +210,7 @@ function checkLetter(i) {
     }if (correctWord === word.length){
       bigWinner.style.display="flex";
       reset.style.display ="flex"
+      finalLocalStorage();
     }
   }
   if(!correctLetter){
